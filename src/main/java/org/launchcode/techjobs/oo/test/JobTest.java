@@ -50,7 +50,7 @@ public class JobTest {
 
     @Test
     public void testToStringStartsAndEndsWithNewLine(){
-        Job jobSix = new Job();
+        Job jobSix = new Job("",new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
         String str = jobSix.toString();
         char zeroChar = str.charAt(0);
         char lastChar = str.charAt(str.length()-1);
@@ -67,15 +67,15 @@ public class JobTest {
 
     @Test
     public void testToStringHandlesEmptyField(){
-        Job jobEight = new Job("Junior Data Analyst" , new Employer(""), new Location("Saint Louis"), new PositionType("Data Scientist / Business Intelligence"), new CoreCompetency("Statistical Analysis"));
+        Job jobEight = new Job("" , new Employer(""), new Location("Saint Louis"), new PositionType("Data Scientist / Business Intelligence"), new CoreCompetency("Statistical Analysis"));
         String str = jobEight.toString();
-        assertEquals("\nID: " + jobEight.getId() + "\nName: " + jobEight.getName() +"\nEmployer: " + "Date not available"+"\nLocation: " + jobEight.getLocation() + "\nPosition Type: "+ jobEight.getPositionType() + "\nCore Competency: " + jobEight.getCoreCompetency() +"\n", str );
+        assertEquals("\nID: " + jobEight.getId() + "\nName: " + "Data not available"  +"\nEmployer: " + "Data not available" +"\nLocation: " + jobEight.getLocation() + "\nPosition Type: "+ jobEight.getPositionType() + "\nCore Competency: " + jobEight.getCoreCompetency() +"\n", str );
         //assertTrue(str.equals("OOPS! This job does not seem to exist."));
     }
 
     @Test
     public void testAllEmptyFields(){
-        Job jobEight = new Job();
+        Job jobEight = new Job("", new Employer(""), new Location(""), new PositionType(""), new CoreCompetency(""));
         String str = jobEight.toString();
         assertEquals(str,"\n OOPS! This job does not seem to exist. \n");
 
